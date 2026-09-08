@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="164" viewBox="0 0 960 164" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="167.8" viewBox="0 0 960 167.8"><rect width="960" height="167.8" fill="#111214"/><svg xmlns="http://www.w3.org/2000/svg" x="24" y="0" width="912" height="155.8" viewBox="0 0 960 164" role="img" aria-labelledby="title desc">
 <title id="title">Pcap-Analyzer</title><desc id="desc">Packet-capture inspection with a web interface. Traffic analysis for investigations and CTFs.</desc>
 <style>
 text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
@@ -17,4 +17,4 @@ text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 <path d="M732 20V144" stroke="#393a3d"/>
 <text class="mono accent" x="925" y="35" text-anchor="end">↗</text>
 <g transform="translate(776 52)" fill="none" stroke="#d3a087" stroke-width="1.5"><path d="M0 40H20L28 20L40 62L53 8L67 51L78 30H120"/><path d="M0 0V76H124" opacity=".3"/></g>
-</svg>
+</svg></svg>

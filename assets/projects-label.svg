@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="68" viewBox="0 0 960 68" role="img" aria-labelledby="title desc">
-<title id="title">Selected projects</title><desc id="desc">01 / Selected projects. Open any project to view its repository.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="76.6" viewBox="0 0 960 76.6"><rect width="960" height="76.6" fill="#111214"/><svg xmlns="http://www.w3.org/2000/svg" x="24" y="0" width="912" height="64.6" viewBox="0 0 960 68" role="img" aria-labelledby="title desc">
+<title id="title">Selected projects</title><desc id="desc">02 / Selected projects. Open any project to view its repository.</desc>
 <style>
 text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 .mono{font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;fill:#a6a5a2}
@@ -7,4 +7,4 @@ text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}.scan,.packet,.cipher,.cursor{display:none}}
 </style>
 <rect width="960" height="68" fill="#111214"/>
-<text class="mono accent" x="8" y="42">01 /</text><text x="76" y="43" font-size="24" font-weight="600">Selected projects</text><path d="M306 36H755" stroke="#393a3d"/><text class="mono" x="952" y="41" text-anchor="end">SOURCE AVAILABLE ↗</text></svg>
+<text class="mono accent" x="8" y="42">02 /</text><text x="76" y="43" font-size="24" font-weight="600">Selected projects</text><path d="M306 36H755" stroke="#393a3d"/><text class="mono" x="952" y="41" text-anchor="end">SOURCE AVAILABLE ↗</text></svg></svg>

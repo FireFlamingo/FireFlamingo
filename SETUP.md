@@ -16,7 +16,9 @@ This is GitHub's **public contribution calendar**, including commits, issues, pu
 
 ## Edit and regenerate
 
-Edit the visual project descriptions, colors, layout, animation timings, and handle in `scripts/build_assets.py`. Update the matching alternative text and plain-text project index in `README.md`. Project cards are individual linked SVG images so the colors carry over to the actual GitHub profile. GitHub still controls the surrounding page background and native text styling.
+Edit the visual project descriptions, colors, layout, animation timings, and handle in `scripts/build_assets.py`. Update the matching alternative text in `README.md`. Project cards are individual linked SVG images so the colors carry over to the actual GitHub profile. GitHub still controls the surrounding page background and native text styling.
+
+The README intentionally uses one HTML paragraph with adjacent images and `align="top"`. Keep the image tags together without whitespace or blank lines between them: GitHub paragraph margins and inline-image baselines otherwise introduce visible seams. The SVG generator includes all charcoal padding. Section order is identity, contributions, selected projects, working stack, and footer.
 
 ```sh
 python scripts/build_assets.py

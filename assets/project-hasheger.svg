@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="164" viewBox="0 0 960 164" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="167.8" viewBox="0 0 960 167.8"><rect width="960" height="167.8" fill="#111214"/><svg xmlns="http://www.w3.org/2000/svg" x="24" y="0" width="912" height="155.8" viewBox="0 0 960 164" role="img" aria-labelledby="title desc">
 <title id="title">Hasheger</title><desc id="desc">A web vault, backend, app, and browser extension. Source code in the Commit repository.</desc>
 <style>
 text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
@@ -17,4 +17,4 @@ text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 <path d="M732 20V144" stroke="#393a3d"/>
 <text class="mono accent" x="925" y="35" text-anchor="end">↗</text>
 <g transform="translate(776 52)" fill="none" stroke="#d3a087" stroke-width="1.5"><rect x="33" y="28" width="62" height="46"/><path d="M46 28V17a18 18 0 0 1 36 0v11"/><circle cx="64" cy="47" r="5"/><path d="M64 52V62M17 38H5M17 58H5M111 38H123M111 58H123"/></g>
-</svg>
+</svg></svg>

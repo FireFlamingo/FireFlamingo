@@ -180,13 +180,13 @@ def calendar(t, days, refreshed):
     active = sum(d["count"] > 0 for d in days)
     peak = max(d["count"] for d in days)
     title = f"{USER}: {total:,} public contributions over 365 days"
-    s = svg_open(290, t, title, f"{first} through {last}. {active} active days. Peak {peak} contributions in one day. Refreshed {refreshed}. Left-to-right reveal plays once.")
+    s = svg_open(322, t, title, f"{first} through {last}. {active} active days. Peak {peak} contributions in one day. Refreshed {refreshed}. Left-to-right reveal plays once.")
     s += f'''<style>
 @keyframes reveal{{0%{{opacity:.12}}65%{{opacity:1;fill:{t['accent']}}}100%{{opacity:1}}}}
 @keyframes sweep{{0%{{transform:translateX(0);opacity:0}}5%{{opacity:.6}}95%{{opacity:.6}}100%{{transform:translateX(848px);opacity:0}}}}
 .reveal{{animation:reveal .55s ease-out both}}.scan{{opacity:0;animation:sweep 2.6s .18s linear both}}
 </style>
-<text class="mono" x="32" y="36">03 / CONTRIBUTION TRACE</text>
+<text class="mono" x="32" y="36">01 / CONTRIBUTION TRACE</text>
 <text class="mono" x="928" y="36" text-anchor="end">{first:%d %b %Y} — {last:%d %b %Y}</text>
 <text x="32" y="82" font-size="32" font-weight="700" letter-spacing="-1">{total:,}<tspan dx="9" font-size="14" font-weight="400" letter-spacing="0" class="muted">contributions</tspan></text>
 <text x="928" y="79" font-size="13" class="muted" text-anchor="end">{active} active days / {peak} most in a day</text>
@@ -211,8 +211,20 @@ def calendar(t, days, refreshed):
     s += f'<text class="mono" x="32" y="267">UPDATED {refreshed} UTC</text><text class="mono" x="760" y="267">LESS</text>'
     for i, color in enumerate(t["cells"]):
         s += f'<rect x="{804+i*16}" y="257" width="12" height="12" rx="2" fill="{color}"/>'
-    s += '<text class="mono" x="890" y="267">MORE</text></svg>'
+    s += '<text class="mono" x="890" y="267">MORE</text><text class="mono" x="32" y="307" style="font-size:11px">PUBLIC CONTRIBUTIONS / COMMITS, PULL REQUESTS, ISSUES &amp; REVIEWS / REFRESHED DAILY</text></svg>'
     return s
+
+
+def seamless_panel(svg, top=0, bottom=0):
+    """Bake spacing into images so adjacent README images share one canvas."""
+    height = int(re.search(r'height="(\d+)"', svg)[1])
+    scaled_height = height * .95
+    outer_height = top + scaled_height + bottom
+    inner = svg.replace('width="960"', 'x="24" y="' + str(top) + '" width="912"', 1)
+    inner = inner.replace(f'height="{height}"', f'height="{scaled_height:g}"', 1)
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="960" height="{outer_height:g}" '
+            f'viewBox="0 0 960 {outer_height:g}">'
+            f'<rect width="960" height="{outer_height:g}" fill="#111214"/>' + inner + '</svg>')
 
 
 def main():
@@ -250,6 +262,12 @@ def main():
         '<path d="M43 0L29 76M84 0L70 76M10 24H111M4 51H105"/><path d="M115 0H126V12M0 64V76H11" opacity=".4"/>')
     output["toolkit.svg"] = toolkit(t)
     output["footer.svg"] = footer(t)
+    output["projects-label.svg"] = output["projects-label.svg"].replace('01 /', '02 /')
+    output["toolkit.svg"] = output["toolkit.svg"].replace('02 /', '03 /')
+    for name in list(output):
+        top = 24 if name.startswith("header-") else 0
+        bottom = 24 if name == "footer.svg" else 12
+        output[name] = seamless_panel(output[name], top=top, bottom=bottom)
     output["contributions.json"] = json.dumps({"user": USER, "refreshed": today.isoformat(), "source": f"https://github.com/users/{USER}/contributions", "days": days}, indent=2) + "\n"
     assets = ROOT / "assets"
     assets.mkdir(exist_ok=True)
