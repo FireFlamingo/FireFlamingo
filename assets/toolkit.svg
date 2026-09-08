@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="188" viewBox="0 0 960 188" role="img" aria-labelledby="title desc">
+<title id="title">Toolkit</title><desc id="desc">Web: Burp Suite, HTTP, authentication. Forensics: Wireshark, Volatility, Ghidra. Code: Python, Bash, JavaScript, C and C++.</desc>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
+.mono{font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;fill:#a6a5a2}
+.muted{fill:#a6a5a2}.accent{fill:#d3a087}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.scan,.packet,.cipher,.cursor{display:none}}
+</style>
+<rect width="960" height="188" fill="#111214"/>
+<text class="mono accent" x="8" y="39">02 /</text><text x="76" y="40" font-size="24" font-weight="600">Working stack</text><path d="M281 33H952" stroke="#393a3d"/>
+<rect x="1" y="65" width="958" height="122" fill="#1b1c1f" stroke="#393a3d"/>
+<path d="M321 65V187M641 65V187" stroke="#393a3d"/>
+<text class="mono accent" x="25" y="96">HTTP / APPLICATION</text><text x="25" y="130" font-size="17">Burp Suite · HTTP</text><text x="25" y="156" font-size="17" class="muted">Authentication</text><text class="mono accent" x="345" y="96">BYTES / ARTIFACTS</text><text x="345" y="130" font-size="17">Wireshark · Volatility</text><text x="345" y="156" font-size="17" class="muted">Ghidra</text><text class="mono accent" x="665" y="96">CODE / AUTOMATION</text><text x="665" y="130" font-size="17">Python · Bash</text><text x="665" y="156" font-size="17" class="muted">JavaScript · C / C++</text></svg>

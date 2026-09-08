@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="408" viewBox="0 0 960 408" role="img" aria-labelledby="title desc">
+<title id="title">FireFlamingo / ff7</title><desc id="desc">FireFlamingo resolves from hexadecimal characters. Web application security, digital forensics, CTFs. A copper wireframe flamingo is drawn beside the name.</desc>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
+.mono{font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;fill:#a6a5a2}
+.muted{fill:#a6a5a2}.accent{fill:#d3a087}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.scan,.packet,.cipher,.cursor{display:none}}
+</style>
+<rect width="960" height="408" fill="#111214"/>
+<defs>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#393a3d" stroke-width=".5" opacity=".35"/></pattern>
+</defs><style>
+@keyframes resolve{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes cipher{0%,65%{opacity:.8}100%{opacity:0}}
+@keyframes draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+@keyframes cursor{0%{transform:translateX(0);opacity:0}5%,88%{opacity:1}100%{transform:translateX(590px);opacity:0}}
+@keyframes flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-360}}
+.letter{animation:resolve .35s ease-out both}.cipher{opacity:0;animation:cipher .4s step-end both}
+.wire{stroke-dasharray:900;animation:draw 2.6s ease-out both}
+.cursor{opacity:0;animation:cursor 2.5s .2s ease-out both}
+.packet{stroke-dasharray:12 348;animation:flow 8s linear infinite}
+</style>
+<rect x="1" y="1" width="958" height="406" fill="url(#grid)" stroke="#393a3d"/>
+<rect x="1" y="1" width="958" height="45" fill="#1b1c1f"/>
+<path d="M1 46H959M32 337H928" stroke="#393a3d"/>
+<rect x="24" y="19" width="8" height="8" fill="#d3a087"/>
+<text class="mono" x="44" y="27">FF / 0x07</text>
+<text class="mono" x="936" y="27" text-anchor="end">SECURITY RESEARCH &amp; ENGINEERING</text>
+<text class="mono accent" x="36" y="88">[ IDENTITY ]</text>
+<rect x="32" y="104" width="612" height="91" fill="#111214" opacity=".9"/>
+<text class="cipher" x="34" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:0.20s">6</text><text class="letter" x="34" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:0.50s">F</text><text class="cipher" x="80" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:0.34s">9</text><text class="letter" x="80" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:0.64s">i</text><text class="cipher" x="126" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:0.48s">2</text><text class="letter" x="126" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:0.78s">r</text><text class="cipher" x="172" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:0.62s">5</text><text class="letter" x="172" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:0.92s">e</text><text class="cipher" x="218" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:0.76s">6</text><text class="letter" x="218" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.06s">F</text><text class="cipher" x="264" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:0.90s">c</text><text class="letter" x="264" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.20s">l</text><text class="cipher" x="310" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:1.04s">1</text><text class="letter" x="310" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.34s">a</text><text class="cipher" x="356" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:1.18s">d</text><text class="letter" x="356" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.48s">m</text><text class="cipher" x="402" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:1.32s">9</text><text class="letter" x="402" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.62s">i</text><text class="cipher" x="448" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:1.46s">e</text><text class="letter" x="448" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.76s">n</text><text class="cipher" x="494" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:1.60s">7</text><text class="letter" x="494" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:1.90s">g</text><text class="cipher" x="540" y="167" style="font-family:monospace;font-size:65px;fill:#d3a087;animation-delay:1.74s">f</text><text class="letter" x="540" y="167" style="font-family:monospace;font-size:76px;font-weight:700;letter-spacing:-4px;animation-delay:2.04s">o</text><rect class="cursor" x="32" y="107" width="2" height="84" fill="#d3a087"/>
+<text x="36" y="224" font-size="22" font-weight="600">Web application security &amp; digital forensics.</text>
+<text x="36" y="256" font-size="16" class="muted">I build tools to inspect traffic, understand systems,</text>
+<text x="36" y="280" font-size="16" class="muted">and work through security problems.</text>
+<path d="M665 73V310" stroke="#393a3d" stroke-dasharray="3 6"/>
+<g fill="none" stroke="#393a3d">
+<circle cx="800" cy="189" r="100"/><circle cx="800" cy="189" r="77"/>
+<path d="M686 189H914M800 75V303M726 115L874 263M726 263L874 115"/>
+</g>
+<g class="wire" fill="none" stroke="#d3a087" stroke-width="2" stroke-linejoin="bevel">
+<path d="M728 197L759 171L801 177L815 158L808 124L828 103L854 107L866 127L842 137L827 127L833 118L848 119M842 137L839 159L856 183L829 213L778 224L728 197L785 194L801 177M759 171L778 224L815 205L856 183M785 194L815 205L829 213M795 221L787 263L814 263M818 217L840 242L816 270"/>
+</g>
+<circle cx="846" cy="117" r="2.5" fill="#eeece6"/>
+<g fill="#111214" stroke="#d3a087"><rect x="725" y="194" width="6" height="6"/><rect x="775" y="221" width="6" height="6"/><rect x="853" y="180" width="6" height="6"/></g>
+<text class="mono" x="800" y="317" text-anchor="middle">FIG. 01 / FLAMINGO</text>
+<path class="packet" d="M36 302H330L348 320H620" stroke="#d3a087" fill="none"/>
+<text class="mono" x="36" y="364">46 69 72 65 46 6c 61 6d 69 6e 67 6f</text>
+<text class="mono accent" x="924" y="364" text-anchor="end">WEB / DFIR / CTF</text>
+<text class="mono" x="36" y="387" style="font-size:10px">ASCII / FireFlamingo</text>
+<path d="M1 14V1H14M946 1H959V14M1 394V407H14M946 407H959V394" fill="none" stroke="#d3a087" stroke-width="2"/>
+</svg>

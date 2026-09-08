@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="62" viewBox="0 0 960 62" role="img" aria-labelledby="title desc">
+<title id="title">All public repositories</title><desc id="desc">Browse all public FireFlamingo repositories on GitHub.</desc>
+<style>
+text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
+.mono{font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;fill:#a6a5a2}
+.muted{fill:#a6a5a2}.accent{fill:#d3a087}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.scan,.packet,.cipher,.cursor{display:none}}
+</style>
+<rect width="960" height="62" fill="#111214"/>
+<path d="M1 1H959" stroke="#393a3d"/><text class="mono" x="8" y="37">FireFlamingo / ff7</text><text class="mono accent" x="952" y="37" text-anchor="end">EXPLORE ALL REPOSITORIES ↗</text></svg>
