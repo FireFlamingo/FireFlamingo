@@ -1,43 +1,8 @@
 {
   "user": "FireFlamingo",
-  "refreshed": "2026-09-12",
+  "refreshed": "2026-09-13",
   "source": "https://github.com/users/FireFlamingo/contributions",
   "days": [
-    {
-      "date": "2025-09-07",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-09-08",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-09-09",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-09-10",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-09-11",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-09-12",
-      "level": 3,
-      "count": 5
-    },
-    {
-      "date": "2025-09-13",
-      "level": 4,
-      "count": 7
-    },
     {
       "date": "2025-09-14",
       "level": 0,
@@ -1575,7 +1540,7 @@
     },
     {
       "date": "2026-07-18",
-      "level": 2,
+      "level": 1,
       "count": 2
     },
     {
@@ -1610,7 +1575,7 @@
     },
     {
       "date": "2026-07-25",
-      "level": 2,
+      "level": 1,
       "count": 2
     },
     {
@@ -1680,7 +1645,7 @@
     },
     {
       "date": "2026-08-08",
-      "level": 2,
+      "level": 1,
       "count": 2
     },
     {
@@ -1750,7 +1715,7 @@
     },
     {
       "date": "2026-08-22",
-      "level": 2,
+      "level": 1,
       "count": 2
     },
     {
@@ -1835,7 +1800,7 @@
     },
     {
       "date": "2026-09-08",
-      "level": 3,
+      "level": 2,
       "count": 4
     },
     {
@@ -1850,11 +1815,16 @@
     },
     {
       "date": "2026-09-11",
-      "level": 2,
+      "level": 1,
       "count": 2
     },
     {
       "date": "2026-09-12",
+      "level": 4,
+      "count": 8
+    },
+    {
+      "date": "2026-09-13",
       "level": 2,
       "count": 3
     }
