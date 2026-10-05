@@ -2,7 +2,7 @@
 
 Create a **public** repository named **FireFlamingo** under the FireFlamingo account, using the `main` branch. Upload `README.md`, `assets/`, `scripts/`, and `.github/` with their directory structure intact. The root README then appears on the account overview.
 
-The ready-made SVGs work immediately. The included GitHub Actions workflow refreshes the calendar daily at approximately 03:23 UTC; it can also be run from **Actions → Refresh contribution trace → Run workflow**. Scheduled runs can be delayed by GitHub. Scheduled workflows in inactive public repositories may be disabled after 60 days; re-enable from Actions if needed. No personal access token or third-party statistics service is required. Repository policy must allow the workflow to write repository contents.
+The ready-made SVGs work immediately. The included GitHub Actions workflow requests a refresh every 30 minutes, at minutes 7 and 37 of each UTC hour; it can also be run from **Actions → Refresh contribution trace → Run workflow**. Scheduled runs can be delayed by GitHub, and GitHub's own contribution processing can lag behind commits. Scheduled workflows in inactive public repositories may be disabled after 60 days; re-enable from Actions if needed. No personal access token or third-party statistics service is required. Repository policy must allow the workflow to write repository contents.
 
 The profile deliberately uses only the account handle. It does not include a personal-site URL, email, or legal-name metadata. Existing account fields, pinned repositories, linked repository content, and commit authors are outside this README's control.
 
@@ -12,7 +12,9 @@ GitHub READMEs support images, not arbitrary page JavaScript. The SVG wordmark r
 
 All artwork uses the specified charcoal, warm white, muted gray, and copper palette, including when GitHub is in light mode. Graphics include descriptive alternative text and a `prefers-reduced-motion` override. Without animation support, the finished graphic remains visible. No remote fonts, scripts, or tracking images are used.
 
-This is GitHub's **public contribution calendar**, including commits, issues, pull requests, and reviews, not a commits-only counter. It uses the latest 365 available days. The public GitHub calendar is fetched directly; its HTML format is not a versioned API. The generator validates dates, counts, and intensity levels and fails instead of publishing fabricated or empty data if that format changes. Existing graphics remain available when refresh fails.
+The count uses the complete calendar returned by GitHub, including commits, issues, pull requests, reviews, and any anonymous private activity GitHub exposes through the public profile. Every day's count contributes to both the displayed total and heatmap; the generator no longer trims the first calendar days to an arbitrary 365-day window. No private repository names or details are requested. The public calendar is fetched directly; its HTML format is not a versioned API. The generator validates dates, counts, and intensity levels and fails instead of publishing fabricated or empty data if that format changes. Existing graphics remain available when refresh fails.
+
+Each successful refresh includes its UTC time and updates the README's contribution image with a content-derived URL version. This gives GitHub's image proxy a new cache key when the graphic changes. The workflow commits both the artwork and README, retries transient upstream failures, and preserves the continuous charcoal layout.
 
 ## Edit and regenerate
 
@@ -28,6 +30,6 @@ Python 3.10+ is sufficient, with no packages to install. `assets/contributions.j
 
 ## Content sources
 
-Project descriptions were checked against the public Pcap-Analyzer and hashing-login READMEs, and Commit's web landing page, directory tree, and extension manifest. Tool interests were supplied by the owner's portfolio. Competition results were omitted at the owner's request. Descriptions do not assert independent security audits or certifications for these projects. The IEEE phishing repository had only a title at the time of review, so it was not promoted as a finished project.
+Project descriptions were checked against the MOSAIC and Sodyx READMEs, and Commit's web landing page, directory tree, and extension manifest. Tool interests were supplied by the owner's portfolio. Competition results were omitted at the owner's request. Descriptions do not assert independent security audits or certifications for these projects.
 
 [GitHub profile README requirements](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme)

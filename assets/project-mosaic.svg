@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="167.8" viewBox="0 0 960 167.8"><rect width="960" height="167.8" fill="#111214"/><svg xmlns="http://www.w3.org/2000/svg" x="24" y="0" width="912" height="155.8" viewBox="0 0 960 164" role="img" aria-labelledby="title desc">
-<title id="title">Pcap-Analyzer</title><desc id="desc">Packet-capture inspection with a web interface. Traffic analysis for investigations and CTFs.</desc>
+<title id="title">MOSAIC</title><desc id="desc">Explainable risk checks for packages, skills, MCP servers, and URLs. A local review queue, policy controls, and audit trail.</desc>
 <style>
 text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 .mono{font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;fill:#a6a5a2}
@@ -10,11 +10,11 @@ text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 <rect x="1" y="1" width="958" height="162" fill="#1b1c1f" stroke="#393a3d"/>
 <path d="M1 1H5V163H1" fill="#d3a087"/>
 <text class="mono accent" x="28" y="36">01</text>
-<text class="mono" x="76" y="33">NETWORK FORENSICS / PYTHON + FLASK</text>
-<text x="76" y="73" font-size="30" font-weight="600" letter-spacing="-.5">Pcap-Analyzer</text>
-<text x="76" y="109" font-size="16" class="muted">Packet-capture inspection with a web interface.</text>
-<text x="76" y="134" font-size="16" class="muted">Traffic analysis for investigations and CTFs.</text>
+<text class="mono" x="76" y="33">AI ARTIFACT RISK GATEWAY / TYPESCRIPT</text>
+<text x="76" y="73" font-size="30" font-weight="600" letter-spacing="-.5">MOSAIC</text>
+<text x="76" y="109" font-size="16" class="muted">Explainable risk checks for packages, skills, MCP servers, and URLs.</text>
+<text x="76" y="134" font-size="16" class="muted">A local review queue, policy controls, and audit trail.</text>
 <path d="M732 20V144" stroke="#393a3d"/>
 <text class="mono accent" x="925" y="35" text-anchor="end">↗</text>
-<g transform="translate(776 52)" fill="none" stroke="#d3a087" stroke-width="1.5"><path d="M0 40H20L28 20L40 62L53 8L67 51L78 30H120"/><path d="M0 0V76H124" opacity=".3"/></g>
+<g transform="translate(776 52)" fill="none" stroke="#d3a087" stroke-width="1.5"><rect x="4" y="0" width="30" height="30"/><rect x="45" y="0" width="30" height="30"/><rect x="86" y="0" width="30" height="30"/><rect x="4" y="41" width="30" height="30"/><rect x="45" y="41" width="30" height="30"/><path d="M88 56l9 9 23-27"/></g>
 </svg></svg>

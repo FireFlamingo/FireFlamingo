@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="167.8" viewBox="0 0 960 167.8"><rect width="960" height="167.8" fill="#111214"/><svg xmlns="http://www.w3.org/2000/svg" x="24" y="0" width="912" height="155.8" viewBox="0 0 960 164" role="img" aria-labelledby="title desc">
-<title id="title">hashing-login</title><desc id="desc">An early study of registration and per-user salted hashing. A small codebase to read end to end.</desc>
+<title id="title">Sodyx</title><desc id="desc">One-to-one encrypted text through a relay you host. Verified contact cards and separate identities for each connection.</desc>
 <style>
 text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 .mono{font-family:'Courier New',monospace;font-size:12px;letter-spacing:1px;fill:#a6a5a2}
@@ -10,11 +10,11 @@ text{font-family:Arial,Helvetica,sans-serif;fill:#eeece6}
 <rect x="1" y="1" width="958" height="162" fill="#1b1c1f" stroke="#393a3d"/>
 <path d="M1 1H5V163H1" fill="#d3a087"/>
 <text class="mono accent" x="28" y="36">03</text>
-<text class="mono" x="76" y="33">AUTHENTICATION / PYTHON</text>
-<text x="76" y="73" font-size="30" font-weight="600" letter-spacing="-.5">hashing-login</text>
-<text x="76" y="109" font-size="16" class="muted">An early study of registration and per-user salted hashing.</text>
-<text x="76" y="134" font-size="16" class="muted">A small codebase to read end to end.</text>
+<text class="mono" x="76" y="33">ENCRYPTED ANDROID MESSAGING / KOTLIN</text>
+<text x="76" y="73" font-size="30" font-weight="600" letter-spacing="-.5">Sodyx</text>
+<text x="76" y="109" font-size="16" class="muted">One-to-one encrypted text through a relay you host.</text>
+<text x="76" y="134" font-size="16" class="muted">Verified contact cards and separate identities for each connection.</text>
 <path d="M732 20V144" stroke="#393a3d"/>
 <text class="mono accent" x="925" y="35" text-anchor="end">↗</text>
-<g transform="translate(776 52)" fill="none" stroke="#d3a087" stroke-width="1.5"><path d="M43 0L29 76M84 0L70 76M10 24H111M4 51H105"/><path d="M115 0H126V12M0 64V76H11" opacity=".4"/></g>
+<g transform="translate(776 52)" fill="none" stroke="#d3a087" stroke-width="1.5"><path d="M4 4h80v43H43L24 63V47H4Z"/><path d="M99 22h21v44h-20L82 79V66H56V57"/><circle cx="28" cy="26" r="3"/><circle cx="44" cy="26" r="3"/><circle cx="60" cy="26" r="3"/></g>
 </svg></svg>

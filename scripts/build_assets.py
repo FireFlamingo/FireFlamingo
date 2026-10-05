@@ -7,11 +7,14 @@ from __future__ import annotations
 
 import argparse
 from datetime import date, datetime, timedelta, timezone
+import hashlib
 from html import escape
 from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
+import time
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -173,13 +176,12 @@ def footer(t):
 
 def calendar(t, days, refreshed):
     last = date.fromisoformat(days[-1]["date"])
-    first = last - timedelta(days=364)
-    days = [d for d in days if date.fromisoformat(d["date"]) >= first]
+    first = date.fromisoformat(days[0]["date"])
     sunday = first - timedelta(days=(first.weekday() + 1) % 7)
     total = sum(d["count"] for d in days)
     active = sum(d["count"] > 0 for d in days)
     peak = max(d["count"] for d in days)
-    title = f"{USER}: {total:,} public contributions over 365 days"
+    title = f"{USER}: {total:,} GitHub contributions over the last year"
     s = svg_open(322, t, title, f"{first} through {last}. {active} active days. Peak {peak} contributions in one day. Refreshed {refreshed}. Left-to-right reveal plays once.")
     s += f'''<style>
 @keyframes reveal{{0%{{opacity:.12}}65%{{opacity:1;fill:{t['accent']}}}100%{{opacity:1}}}}
@@ -208,10 +210,11 @@ def calendar(t, days, refreshed):
     for row, label in [(1, "MON"), (3, "WED"), (5, "FRI")]:
         s += f'<text class="mono" x="32" y="{y0+row*pitch+10}">{label}</text>\n'
     s += f'<rect class="scan" x="78" y="125" width="2" height="113" fill="{t["accent"]}"/>\n'
-    s += f'<text class="mono" x="32" y="267">UPDATED {refreshed} UTC</text><text class="mono" x="760" y="267">LESS</text>'
+    updated = datetime.fromisoformat(refreshed.replace("Z", "+00:00")).strftime("%d %b %Y %H:%M").upper()
+    s += f'<text class="mono" x="32" y="267">UPDATED {updated} UTC</text><text class="mono" x="760" y="267">LESS</text>'
     for i, color in enumerate(t["cells"]):
         s += f'<rect x="{804+i*16}" y="257" width="12" height="12" rx="2" fill="{color}"/>'
-    s += '<text class="mono" x="890" y="267">MORE</text><text class="mono" x="32" y="307" style="font-size:11px">PUBLIC CONTRIBUTIONS / COMMITS, PULL REQUESTS, ISSUES &amp; REVIEWS / REFRESHED DAILY</text></svg>'
+    s += '<text class="mono" x="890" y="267">MORE</text><text class="mono" x="32" y="307" style="font-size:11px">GITHUB CONTRIBUTIONS / COMMITS, PULL REQUESTS, ISSUES &amp; REVIEWS / REFRESH EVERY 30 MIN</text></svg>'
     return s
 
 
@@ -227,6 +230,33 @@ def seamless_panel(svg, top=0, bottom=0):
             f'<rect width="960" height="{outer_height:g}" fill="#111214"/>' + inner + '</svg>')
 
 
+def fetch_calendar():
+    """Retry transient upstream errors; never replace a failed fetch with zeros."""
+    for attempt in range(3):
+        req = Request(f"https://github.com/users/{USER}/contributions?refresh={int(time.time())}",
+                      headers={"User-Agent": "FireFlamingo-profile", "Accept-Language": "en-US",
+                               "Cache-Control": "no-cache"})
+        try:
+            with urlopen(req, timeout=30) as response:
+                return response.read().decode("utf-8")
+        except (URLError, TimeoutError) as error:
+            if isinstance(error, HTTPError) and error.code not in (429, 500, 502, 503, 504):
+                raise
+            if attempt == 2:
+                raise
+            time.sleep(2 ** (attempt + 1))
+
+
+def version_calendar_image(readme, svg):
+    """Give GitHub's image proxy a new URL when the graphic changes."""
+    version = hashlib.sha256(svg.encode("utf-8")).hexdigest()[:16]
+    updated, count = re.subn(r'(src="assets/contributions-dark\.svg)(?:\?[^"\s]*)?(\")',
+                             lambda match: f'{match[1]}?v={version}{match[2]}', readme)
+    if count != 1:
+        raise ValueError("Expected exactly one contribution image in README")
+    return updated
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--from-html", type=Path, help="Build from a saved GitHub calendar for offline verification")
@@ -234,13 +264,13 @@ def main():
     if args.from_html:
         raw = args.from_html.read_text(encoding="utf-8")
     else:
-        req = Request(f"https://github.com/users/{USER}/contributions", headers={"User-Agent": "FireFlamingo-profile", "Accept-Language": "en-US"})
-        with urlopen(req, timeout=30) as response:
-            raw = response.read().decode("utf-8")
+        raw = fetch_calendar()
     parsed = CalendarParser()
     parsed.feed(raw)
     days = parsed.days()
-    today = datetime.now(timezone.utc).date()
+    now = datetime.now(timezone.utc).replace(second=0, microsecond=0)
+    today = now.date()
+    refreshed = now.isoformat().replace("+00:00", "Z")
     last = date.fromisoformat(days[-1]["date"])
     if not 0 <= (today - last).days <= 2:
         raise ValueError(f"Calendar is stale or future-dated: {last}")
@@ -248,18 +278,18 @@ def main():
     output = {}
     for name, theme in THEMES.items():
         output[f"header-{name}.svg"] = header(theme)
-        output[f"contributions-{name}.svg"] = calendar(theme, days, today.isoformat())
+        output[f"contributions-{name}.svg"] = calendar(theme, days, refreshed)
     t = PALETTE
     output["projects-label.svg"] = project_label(t)
-    output["project-pcap.svg"] = project_card(t, "01", "Pcap-Analyzer", "NETWORK FORENSICS / PYTHON + FLASK",
-        ["Packet-capture inspection with a web interface.", "Traffic analysis for investigations and CTFs."],
-        '<path d="M0 40H20L28 20L40 62L53 8L67 51L78 30H120"/><path d="M0 0V76H124" opacity=".3"/>')
+    output["project-mosaic.svg"] = project_card(t, "01", "MOSAIC", "AI ARTIFACT RISK GATEWAY / TYPESCRIPT",
+        ["Explainable risk checks for packages, skills, MCP servers, and URLs.", "A local review queue, policy controls, and audit trail."],
+        '<rect x="4" y="0" width="30" height="30"/><rect x="45" y="0" width="30" height="30"/><rect x="86" y="0" width="30" height="30"/><rect x="4" y="41" width="30" height="30"/><rect x="45" y="41" width="30" height="30"/><path d="M88 56l9 9 23-27"/>')
     output["project-hasheger.svg"] = project_card(t, "02", "Hasheger", "PASSWORD MANAGER / TYPESCRIPT",
         ["A web vault, backend, app, and browser extension.", "Source code in the Commit repository."],
         '<rect x="33" y="28" width="62" height="46"/><path d="M46 28V17a18 18 0 0 1 36 0v11"/><circle cx="64" cy="47" r="5"/><path d="M64 52V62M17 38H5M17 58H5M111 38H123M111 58H123"/>')
-    output["project-hashing.svg"] = project_card(t, "03", "hashing-login", "AUTHENTICATION / PYTHON",
-        ["An early study of registration and per-user salted hashing.", "A small codebase to read end to end."],
-        '<path d="M43 0L29 76M84 0L70 76M10 24H111M4 51H105"/><path d="M115 0H126V12M0 64V76H11" opacity=".4"/>')
+    output["project-sodyx.svg"] = project_card(t, "03", "Sodyx", "ENCRYPTED ANDROID MESSAGING / KOTLIN",
+        ["One-to-one encrypted text through a relay you host.", "Verified contact cards and separate identities for each connection."],
+        '<path d="M4 4h80v43H43L24 63V47H4Z"/><path d="M99 22h21v44h-20L82 79V66H56V57"/><circle cx="28" cy="26" r="3"/><circle cx="44" cy="26" r="3"/><circle cx="60" cy="26" r="3"/>')
     output["toolkit.svg"] = toolkit(t)
     output["footer.svg"] = footer(t)
     output["projects-label.svg"] = output["projects-label.svg"].replace('01 /', '02 /')
@@ -268,13 +298,19 @@ def main():
         top = 24 if name.startswith("header-") else 0
         bottom = 24 if name == "footer.svg" else 12
         output[name] = seamless_panel(output[name], top=top, bottom=bottom)
-    output["contributions.json"] = json.dumps({"user": USER, "refreshed": today.isoformat(), "source": f"https://github.com/users/{USER}/contributions", "days": days}, indent=2) + "\n"
+    output["contributions.json"] = json.dumps({"user": USER, "refreshed": refreshed,
+        "source": f"https://github.com/users/{USER}/contributions",
+        "periodStart": days[0]["date"], "periodEnd": days[-1]["date"],
+        "totalContributions": sum(day["count"] for day in days), "days": days}, indent=2) + "\n"
+    readme_path = ROOT / "README.md"
+    readme = version_calendar_image(readme_path.read_text(encoding="utf-8"), output["contributions-dark.svg"])
     assets = ROOT / "assets"
     assets.mkdir(exist_ok=True)
     for name, value in output.items():
         temp = assets / (name + ".tmp")
         temp.write_text(value, encoding="utf-8")
         temp.replace(assets / name)
+    readme_path.write_text(readme, encoding="utf-8")
     print(f"Built {len(output)} assets from {len(days)} real contribution days.")
 
 
