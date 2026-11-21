@@ -1,9 +1,9 @@
 {
   "user": "FireFlamingo",
-  "refreshed": "2026-11-20T23:18:00Z",
+  "refreshed": "2026-11-21T04:15:00Z",
   "source": "https://github.com/users/FireFlamingo/contributions",
   "periodStart": "2025-11-16",
-  "periodEnd": "2026-11-20",
+  "periodEnd": "2026-11-21",
   "totalContributions": 353,
   "days": [
     {
@@ -1853,6 +1853,11 @@
     },
     {
       "date": "2026-11-20",
+      "level": 0,
+      "count": 0
+    },
+    {
+      "date": "2026-11-21",
       "level": 0,
       "count": 0
     }
